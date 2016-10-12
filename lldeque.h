@@ -59,4 +59,20 @@ int lldeque_remove_front(struct lldeque* deque);
  */
 int lldeque_remove_back(struct lldeque* deque);
 
+
+/***********************
+ **
+ ** Iterator interface
+ **
+ ***********************/
+struct lldeque_iterator;
+
+struct lldeque_iterator* lldeque_iterator_create(struct lldeque* deque);
+void lldeque_iterator_free(struct lldeque_iterator* iter);
+int lldeque_iterator_has_next(struct lldeque_iterator* iter);
+int lldeque_iterator_next(struct lldeque_iterator* iter);
+void lldeque_iterator_remove(struct lldeque_iterator* iter);
+void lldeque_iterator_insert(struct lldeque_iterator* iter, int value);
+void lldeque_iterator_update(struct lldeque_iterator* iter, int value);
+
 #endif
